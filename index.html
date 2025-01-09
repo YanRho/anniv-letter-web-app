@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Romantic Envelope</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #fce4ec; /* Soft pink background */
+      }
+
+      .envelope {
+        position: relative;
+        width: 320px;
+        height: 220px;
+        background-color: #fad0c4; /* Light pink for the envelope body */
+        border-radius: 8px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+      }
+
+      .flap-top {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 50%;
+        background: #ff9a9e; /* Romantic darker pink for the top flap */
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+        z-index: 4; /* Ensure it’s above other flaps */
+      }
+
+      .flap-bottom {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 50%;
+        background: #ffc8b9; /* Matches the body */
+        clip-path: polygon(0 100%, 100% 100%, 50% 0%);
+        z-index: 1;
+      }
+
+      .side-left,
+      .side-right {
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        background-color: #fad0c4; /* Same as envelope body */
+        z-index: 2;
+      }
+
+      .side-left {
+        left: 0;
+        clip-path: polygon(0 0, 100% 50%, 0 100%);
+      }
+
+      .side-right {
+        right: 0;
+        clip-path: polygon(100% 0, 0 50%, 100% 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="envelope">
+      <div class="flap-top"></div>
+      <div class="side-left"></div>
+      <div class="side-right"></div>
+      <div class="flap-bottom"></div>
+    </div>
+  </body>
+</html>
