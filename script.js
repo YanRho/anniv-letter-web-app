@@ -40,3 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Generate hearts at intervals
   setInterval(createHeart, 500);
 });
+
+function openEnvelope() {
+  document.querySelector(".wrapper").classList.add("open");
+}
