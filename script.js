@@ -1,22 +1,46 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const startDate = new Date("2023-01-09T00:00:00");
+  // Fetch data from the text file for dynamic content
+  fetch("info.txt")
+    .then((response) => response.json())
+    .then((data) => {
+      const { anniversaryDate, name, message, personalMessage, signature } =
+        data;
+      const startDate = new Date(anniversaryDate);
 
-  function updateCounter() {
-    const now = new Date();
-    const diff = now - startDate;
+      // Populate the HTML elements with data
+      document.querySelector("#recipient").innerText = name;
+      const anniversaryYear =
+        new Date().getFullYear() - startDate.getFullYear();
+      document.querySelector(
+        "#title"
+      ).innerText = `Happy ${anniversaryYear}${getOrdinalSuffix(
+        anniversaryYear
+      )} Anniversary,`;
+      document.querySelector("#message").innerText = message;
+      document.querySelector("#personalMessage").innerText = personalMessage;
+      document.querySelector("#signature").innerHTML = signature;
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
+      // Function to update the counter dynamically
+      function updateCounter() {
+        const now = new Date();
+        const diff = now - startDate;
 
-    document.getElementById(
-      "counter"
-    ).innerText = `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
-  }
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
 
-  setInterval(updateCounter, 1000);
-  updateCounter();
+        document.getElementById(
+          "counter"
+        ).innerText = `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
+      }
+
+      setInterval(updateCounter, 1000);
+      updateCounter();
+    })
+    .catch((error) =>
+      console.error("Error fetching anniversary details:", error)
+    );
 
   // Floating Hearts Animation
   function createHeart() {
@@ -37,8 +61,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 6000);
   }
 
-  // Generate hearts at intervals
-  setInterval(createHeart, 500);
+  // Generate hearts at intervals only on the countdown page
+  if (document.getElementById("container")) {
+    setInterval(createHeart, 500);
+  }
 });
 
 function openEnvelope() {
@@ -47,10 +73,32 @@ function openEnvelope() {
 
   // Redirect to the countdown page after a short delay
   setTimeout(() => {
-    window.location.href = "countdown.html"; // Path to the countdown.html file
+    window.location.href = "letter.html"; // Path to the countdown.html file
   }, 1000); // Adjust delay to match the animation duration
 }
 
+// Function to return to the envelope page
 function goBack() {
   window.location.href = "index.html"; // Redirect to the envelope page
+}
+
+// Function to get the ordinal suffix for a number
+function getOrdinalSuffix(number) {
+  const lastDigit = number % 10;
+  const lastTwoDigits = number % 100;
+
+  if (lastTwoDigits >= 11 && lastTwoDigits <= 13) {
+    return "th";
+  }
+
+  switch (lastDigit) {
+    case 1:
+      return "st";
+    case 2:
+      return "nd";
+    case 3:
+      return "rd";
+    default:
+      return "th";
+  }
 }
