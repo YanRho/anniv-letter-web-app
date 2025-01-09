@@ -42,5 +42,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function openEnvelope() {
-  document.querySelector(".wrapper").classList.add("open");
+  const wrapper = document.querySelector(".wrapper");
+  wrapper.classList.add("open");
+
+  // Redirect to the countdown page after a short delay
+  setTimeout(() => {
+    window.location.href = "countdown.html"; // Path to the countdown.html file
+  }, 1000); // Adjust delay to match the animation duration
+}
+
+function goBack() {
+  window.location.href = "index.html"; // Redirect to the envelope page
 }

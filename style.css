@@ -74,3 +74,23 @@ p {
     opacity: 0;
   }
 }
+
+.return-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #f19a9d; /* Romantic pink color */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.return-button:hover {
+  background-color: #e68b8d; /* Darker shade on hover */
+}

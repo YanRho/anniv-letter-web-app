@@ -25,6 +25,36 @@
         ); /* Romantic gradient */
       }
 
+      .container {
+        display: flex;
+        flex-direction: column; /* Stack CTA and envelope vertically */
+        align-items: center; /* Center align the items horizontally */
+      }
+
+      .cta {
+        font-size: 26px;
+        font-weight: bold;
+        color: #f19a9d;
+        margin-top: 20px; /* Add space between the CTA and the envelope */
+        text-transform: uppercase;
+        animation: pulse 1.5s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
       .wrapper {
         height: 200px;
         width: 300px;
@@ -33,6 +63,8 @@
         display: flex;
         justify-content: center;
         z-index: 0;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Shadow for the whole envelope */
+        border-radius: 5px; /* Slight rounding for a polished look */
       }
 
       /* Flaps (Lids) */
@@ -54,6 +86,7 @@
         transform: rotateX(0deg); /* Closed state */
         z-index: 3;
         transition-delay: 0.75s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for the top flap */
       }
 
       .lid.two {
@@ -134,16 +167,20 @@
     </style>
   </head>
   <body>
-    <div class="wrapper" onclick="openEnvelope()">
-      <div class="lid one"></div>
-      <div class="lid two"></div>
-      <div class="envelope"></div>
-      <div class="letter">
-        <div class="line short"></div>
-        <div class="line long"></div>
-        <div class="line long"></div>
-        <div class="line medium"></div>
+    <div class="container">
+      <div class="wrapper" onclick="openEnvelope()">
+        <div class="lid one"></div>
+        <div class="lid two"></div>
+        <div class="envelope"></div>
+        <div class="letter">
+          <div class="line short"></div>
+          <div class="line long"></div>
+          <div class="line long"></div>
+          <div class="line medium"></div>
+        </div>
       </div>
+      <div class="cta">Click to Open!</div>
+      <!-- Call-to-Action -->
     </div>
 
     <script src="script.js"></script>
