@@ -1,0 +1,7 @@
+{
+  "name": "Partner's Name",
+  "anniversaryDate": "2023-01-09T00:00:00", 
+  "message": "Here's to every second spent with you. I cherish each moment and look forward to forever. I love you!", 
+  "personalMessage": "Custom Hearfelt Message Here",
+  "signature": "Your Name"
+}
