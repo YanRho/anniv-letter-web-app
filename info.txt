@@ -1,8 +1,0 @@
-{
-  "name": "To: Darian G. Bergenholtz",
-  "anniversaryDate": "2023-01-09T00:00:00",
-  "message": "Here's to every second spent with you. I cherish each moment and look forward to forever.",
-  "personalMessage": "Hello baby! haha! Alam ko gusto mo nung tulips sa may whole foods pero eto na lang muna. I just want to say I love you so much and looking forward for more moments and adventures with you and our little Mochi. Hirap mag sulat ng letter. Parang medyo cringy pero I think ang importante is yung effort. HAHAHA. Eto na lang ginawa ko na simple and fun web app kasi sabi mo last time gawan kita ng flowers animated website pero naisip ko online letter na lang <3. Anyway, Yun lang. Happy Anniversary! I love you! ",
-  "signature": "Forever yours,\nBryan Bergenholtz"
-}
-
